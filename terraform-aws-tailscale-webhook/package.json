@@ -32,9 +32,9 @@
     "typescript": "^3.8.3",
   },
   "dependencies": {
-    "@indent/tailscale-webhook": "canary",
-    "@indent/provider-aws": "canary",
+    "@indent/integration-tailscale": "canary",
+    "@indent/runtime-aws-lambda": "canary",
     "@indent/webhook": "latest",
-    "@indent/types": "latest",
+    "@indent/types": "latest"
   }
 }

@@ -1,5 +1,5 @@
-import { getLambdaHandler } from '@indent/provider-aws'
-import { TailscaleIntegration } from '@indent/tailscale-webhook'
+import { getLambdaHandler } from '@indent/runtime-aws-lambda'
+import { TailscaleIntegration } from '@indent/integration-tailscale'
 
 export const handle = getLambdaHandler({
   integrations: [new TailscaleIntegration()],
