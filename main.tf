@@ -8,7 +8,7 @@ terraform {
 }
 
 module "tailscale-pull-webhook" {
-  source = "./terraform-aws-tailscale-webhook/terraform"
+  source = "./terraform"
 
   indent_webhook_secret = var.tailscale_pull_webhook_secret
   tailscale_api_key     = var.tailscale_api_key
@@ -16,7 +16,7 @@ module "tailscale-pull-webhook" {
 }
 
 module "tailscale-change-webhook" {
-  source = "./terraform-aws-tailscale-webhook/terraform"
+  source = "./terraform"
 
   indent_webhook_secret = var.tailscale_pull_webhook_secret
   tailscale_api_key     = var.tailscale_api_key
