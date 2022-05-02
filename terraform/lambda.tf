@@ -32,13 +32,7 @@ resource "aws_lambda_function" "lambda" {
   }
 }
 
-resource "aws_lambda_permission" "lambda" {
-  statement_id  = "AllowAPIGatewayInvoke"
-  action        = "lambda:InvokeFunction"
-  function_name = aws_lambda_function.lambda.function_name
-  principal     = "apigateway.amazonaws.com"
-
-  # The "/*/*" portion grants access from any method on any resource
-  # within the API Gateway REST API.
-  source_arn = "${aws_api_gateway_rest_api.api_gateway_rest_api.execution_arn}/*/*"
+resource "aws_lambda_function_url" "function_url" {
+  function_name      = aws_lambda_function.lambda.function_name
+  authorization_type = "NONE"
 }
