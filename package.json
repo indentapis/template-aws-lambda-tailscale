@@ -1,5 +1,5 @@
 {
-  "name": "@indent/template-terraform-aws-tailscale-webhook",
+  "name": "@indent/template-aws-lambda-tailscale",
   "version": "0.0.0",
   "description": "A Node.js starter for Terraform on AWS with Indent and Tailscale.",
   "main": "index.js",

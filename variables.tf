@@ -18,7 +18,7 @@ variable "tailscale_pull_webhook_secret" {
   sensitive = true
 }
 
-variable "tailscale_api_key" {
+variable "tailscale_key" {
   type      = string
   default   = ""
   sensitive = true

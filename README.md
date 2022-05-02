@@ -37,8 +37,8 @@ Before you deploy these webhooks for the first time, [create an S3 bucket](https
 </details>
 <details><summary><strong>3. Connecting to Tailscale</strong></summary>
 
-- [Go to Tailscale Personal Settings](https://login.tailscale.com/admin/settings/keys) and generate a new API key, e.g. `Indent Auto Approvals`
-- Add this as `TAILSCALE_API_KEY` as a GitHub Secret
+- [Go to Tailscale Personal Settings](https://login.tailscale.com/admin/settings/keys) and generate a new API key.
+- Add this as `TAILSCALE_KEY` as a GitHub Secret
 
 </details>
 <details><summary><strong>4. Connecting to Indent</strong></summary>
@@ -62,7 +62,7 @@ Add the credentials below to your GitHub Secrets:
 | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | TAILSCALE_WEBHOOK_SECRET      | Get this from your [Indent App](https://indent.com/spaces?next=/manage/spaces/%5Bspace%5D/apps/) or an [Indent Webhook](https://indent.com/docs/webhooks/deploy/okta-groups) in the Dashboard.                                                                       |
 | TAILSCALE_PULL_WEBHOOK_SECRET | Get this from the [Indent Webhook](https://indent.com/docs/webhooks/deploy/okta-groups#step-1-deploy-the-pull-update-webhook) you created while setting up your space.                                                                                               |
-| TAILSCALE_API_KEY             | Your Tailscale API Key. Get this from your [Tailscale Administrator Panel](https://login.tailscale.com/admin/settings/keys).                                                                                                                                         |
+| TAILSCALE_KEY                 | Your Tailscale API Key. Get this from your [Tailscale Administrator Panel](https://login.tailscale.com/admin/settings/keys).                                                                                                                                         |
 | TAILSCALE_TAILNET             | The name of your Tailscale network. The network you want to manage with Indent.                                                                                                                                                                                      |
 | AWS_ACCESS_KEY_ID             | [Your Programmatic AWS Access Key ID](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)                                                                                                                      |
 | AWS_SECRET_ACCESS_KEY         | [Your Programmatic AWS Secret Access Key](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)                                                                                                                  |
