@@ -13,7 +13,7 @@ variable "indent_webhook_secret" {
   sensitive = true
 }
 
-variable "tailscale_api_key" {
+variable "tailscale_key" {
   description = "Your Tailscale API Key"
   type        = string
   sensitive   = true

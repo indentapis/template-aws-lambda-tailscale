@@ -1,5 +1,5 @@
 {
-  "name": "@indent/template-terraform-aws-tailscale-webhook",
+  "name": "@indent/template-aws-lambda-tailscale",
   "version": "0.0.0",
   "description": "A Node.js starter for Terraform on AWS with Indent and Tailscale.",
   "main": "index.js",
@@ -29,12 +29,12 @@
     "@types/node": "^13.9.8",
     "@types/node-fetch": "^2.5.5",
     "ts-loader": "^6.2.2",
-    "typescript": "^3.8.3",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@indent/tailscale-webhook": "canary",
-    "@indent/provider-aws": "canary",
+    "@indent/integration-tailscale": "canary",
+    "@indent/runtime-aws-lambda": "canary",
     "@indent/webhook": "latest",
-    "@indent/types": "latest",
+    "@indent/types": "latest"
   }
 }
