@@ -1,24 +1,27 @@
 terraform {
   backend "s3" {
     encrypt = true
-    bucket  = "indent-example-bucket"
+    bucket  = ""
     region  = "us-west-2"
     key     = "indent/terraform.tfstate"
   }
 }
 
-module "tailscale-pull-webhook" {
-  source = "./terraform"
+module "tailscale-webhook" {
+  source = "github.com/indentapis/integrations//modules/indent_runtime_aws_lambda?ref=v0.0.1"
 
-  indent_webhook_secret = var.tailscale_pull_webhook_secret
-  tailscale_key         = var.tailscale_key
-  tailscale_tailnet     = var.tailscale_tailnet
-}
+  name                  = "idt-tailscale-webhook"
+  indent_webhook_secret = var.indent_webhook_secret
 
-module "tailscale-change-webhook" {
-  source = "./terraform"
+  artifact = {
+    bucket = "indent-artifacts-us-west-2"
 
-  indent_webhook_secret = var.tailscale_webhook_secret
-  tailscale_key         = var.tailscale_key
-  tailscale_tailnet     = var.tailscale_tailnet
+    function_key = "webhooks/aws/lambda/tailscale-v0.0.1-canary-function.zip"
+    deps_key     = "webhooks/aws/lambda/tailscale-v0.0.1-canary-deps.zip"
+  }
+
+  env = {
+    tailscale_key     = var.tailscale_key
+    tailscale_tailnet = var.tailscale_tailnet
+  }
 }

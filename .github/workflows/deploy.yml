@@ -1,4 +1,4 @@
-name: deploy.aws-tailscale-webhook
+name: deploy.webhook
 
 on:
   push:
@@ -38,9 +38,6 @@ jobs:
         id: fmt
         run: terraform fmt -check -diff
 
-      - name: Build Webhook (aws-lambda-tailscale-webhook)
-        run: npm run deploy:prepare && npm install && npm run build
-
       - name: Terraform Init
         id: init
         run: terraform init
@@ -51,10 +48,9 @@ jobs:
         run: terraform plan -input=false -no-color
         continue-on-error: true
         env:
-          TF_VAR_indent_webhook_secret: ${{ secrets.TAILSCALE_WEBHOOK_SECRET }}
-          TF_VAR_indent_pull_webhook_secret: ${{ secrets.TAILSCALE_PULL_WEBHOOK_SECRET }}
-          TF_VAR_okta_domain: ${{ secrets.TAILSCALE_KEY }}
-          TF_VAR_okta_token: ${{ secrets.TAILSCALE_TAILNET}}
+          TF_VAR_indent_webhook_secret: ${{ secrets.INDENT_WEBHOOK_SECRET }}
+          TF_VAR_tailscale_tailnet: ${{ secrets.TAILSCALE_TAILNET}}
+          TF_VAR_tailscale_key: ${{ secrets.TAILSCALE_KEY }}
 
       - uses: actions/github-script@0.9.0
         if: github.event_name == 'pull_request'
@@ -84,7 +80,6 @@ jobs:
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: terraform apply -input=false -auto-approve
         env:
-          TF_VAR_indent_webhook_secret: ${{ secrets.TAILSCALE_WEBHOOK_SECRET }}
-          TF_VAR_indent_pull_webhook_secret: ${{ secrets.TAILSCALE_PULL_WEBHOOK_SECRET }}
-          TF_VAR_okta_domain: ${{ secrets.TAILSCALE_KEY }}
-          TF_VAR_okta_token: ${{ secrets.TAILSCALE_TAILNET}}
+          TF_VAR_indent_webhook_secret: ${{ secrets.INDENT_WEBHOOK_SECRET }}
+          TF_VAR_tailscale_tailnet: ${{ secrets.TAILSCALE_TAILNET}}
+          TF_VAR_tailscale_key: ${{ secrets.TAILSCALE_KEY }}
