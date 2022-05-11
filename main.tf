@@ -8,7 +8,7 @@ terraform {
 }
 
 module "tailscale-webhook" {
-  source = "github.com/indentapis/integrations//modules/indent_runtime_aws_lambda?ref=v0.0.1"
+  source = "github.com/indentapis/integrations//modules/indent_runtime_aws_lambda"
 
   name                  = "idt-tailscale-webhook"
   indent_webhook_secret = var.indent_webhook_secret
