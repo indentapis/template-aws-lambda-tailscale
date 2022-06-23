@@ -13,14 +13,15 @@ variable "indent_webhook_secret" {
   sensitive = true
 }
 
-variable "tailscale_key" {
-  type      = string
-  default   = ""
-  sensitive = true
-}
-
 variable "tailscale_tailnet" {
   type      = string
   default   = ""
   sensitive = true
 }
+
+variable "tailscale_api_key" {
+  type      = string
+  default   = ""
+  sensitive = true
+}
+
