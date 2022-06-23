@@ -1,6 +1,7 @@
 terraform {
   backend "s3" {
     encrypt = true
+    # Enter your S3 bucket here
     bucket  = ""
     region  = "us-west-2"
     key     = "indent/terraform.tfstate"
@@ -18,6 +19,7 @@ module "idt-tailscale-webhook" {
   name                  = "idt-tailscale-webhook"
   indent_webhook_secret = var.indent_webhook_secret
   artifact = {
+    # CAUTION -- leave this bucket alone
     bucket       = "indent-artifacts-us-west-2"
     function_key = "webhooks/aws/lambda/tailscale-2378acf08d16e21fa760584aaff975b2ddd6592c-function.zip"
     deps_key     = "webhooks/aws/lambda/tailscale-2378acf08d16e21fa760584aaff975b2ddd6592c-deps.zip"
