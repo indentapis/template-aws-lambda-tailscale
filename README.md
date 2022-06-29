@@ -47,7 +47,8 @@ Before you deploy these webhooks for the first time, [create an S3 bucket](https
 <details><summary><strong>3. Connecting to Tailscale</strong></summary>
 
 - [Go to Tailscale Personal Settings](https://login.tailscale.com/admin/settings/keys) and create a new API key.
-- Add this as `TAILSCALE_KEY` as a GitHub Secret.
+- Add this as `TAILSCALE_API_KEY` as a GitHub Secret.
+- Add [your tailnet](https://tailscale.com/kb/1136/tailnet/) (e.g. `yourdomain.com`) as `TAILSCALE_TAILNET` as a GitHub Secret.
 
 </details>
 
