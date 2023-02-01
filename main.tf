@@ -10,8 +10,8 @@ terraform {
 
 # Indent + Tailscale Integration
 
-# Details: https://github.com/indentapis/integrations/tree/df93ce81224dfff61d9ccf885101f190a08fd724/packages/stable/indent-integration-tailscale
-# Last Change: https://github.com/indentapis/integrations/commit/df93ce81224dfff61d9ccf885101f190a08fd724
+# Details: https://github.com/indentapis/integrations/tree/df7a83d97d7220dc20566871e81d90a20ec160e0/packages/stable/indent-integration-tailscale
+# Last Change: https://github.com/indentapis/integrations/commit/df7a83d97d7220dc20566871e81d90a20ec160e0
 
 module "idt-tailscale-webhook" {
   source                = "git::https://github.com/indentapis/integrations//terraform/modules/indent_runtime_aws_lambda"
@@ -19,8 +19,8 @@ module "idt-tailscale-webhook" {
   indent_webhook_secret = var.indent_webhook_secret
   artifact = {
     bucket       = "indent-artifacts-us-west-2"
-    function_key = "webhooks/aws/lambda/tailscale-df93ce81224dfff61d9ccf885101f190a08fd724-function.zip"
-    deps_key     = "webhooks/aws/lambda/tailscale-df93ce81224dfff61d9ccf885101f190a08fd724-deps.zip"
+    function_key = "webhooks/aws/lambda/tailscale-df7a83d97d7220dc20566871e81d90a20ec160e0-function.zip"
+    deps_key     = "webhooks/aws/lambda/tailscale-df7a83d97d7220dc20566871e81d90a20ec160e0-deps.zip"
   }
   env = {
     TAILSCALE_TAILNET = var.tailscale_tailnet
